@@ -4,8 +4,9 @@
 <p> Data from UFO sightings is provided in an array of JavaScript objects. This project will create a web page of the presented data in an organized set of tables</p>
 
 <strong><h2>Part 1: Automate Table and Data Search</h2></strong>
-<p>A date form will liste events of UFO sightings and search through the date/time column to find rows that match the user input</p>
-<ul>The table will have the following columns: 
+<p>A date form will list events of UFO sightings and search through the date/time column to find rows that match the user input</p>
+<p>The table will have the following columns:</p>
+<ul> 
 <li>date/time</li>
 <li>city</li>
 <li>state</li>
