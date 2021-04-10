@@ -1,24 +1,36 @@
+// from data.js
 var sightings = data;
-var button = d3.select("#button");
-var form = d3.select("#form");
+console.log(sightings);
 
-button.on("click", runEnter);
-form.on("submit", runEnter);
+var tbody = d3.select("tbody");
+console.log(data);
 
-function runEnter() {
+
+sightings.forEach(ufoSighting => {
+    console.log(ufoSighting);
+    var row = tbody.append("tr");
+    Object.entries(ufoSighting).forEach(function([key,value]){
+        console.log(key,value);
+        var cell = tbody.append("td");
+        cell.text(value);
+    });
+});
+
+var button = d3.select("#filter-btn");
+
+button.on("click", function(event){
     d3.event.preventDefault();
-    var inputElement = d3.select(".form-control");
+    tbody.html("");
 
-    var inputValue = inputElement.property('value').toLowerCase();
-    console.log(inputValue);
+var inputElement = d3.select("#datetime"); 
+var inputValue = inputElement.property("value");
 
-    var tableElement = d3.select("table");
-    tableElement.attr('class', 'table table-striped');
-    var tobodyElement = d3.select('tbody');
-
-    var dataArray = (s => {
-        var trElement = tbodyElement.append("tr");
-        trElement.append("td").text(s);
-    })
-
-}
+var filteredData = sightings.filter(tableData => tableData.datetime === inputValue);
+filteredData.forEach(function(dateData){
+    var row=tbody.append("tr");
+    Object.entries(dateData).forEach(function([key,value]){
+    var cell=tbody.append("td");
+    cell.text(value);
+        });
+    });
+});
